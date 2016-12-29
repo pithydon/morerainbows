@@ -1,4 +1,5 @@
 default
+nyancat
 stairs
 walls
 csh?
