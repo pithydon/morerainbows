@@ -3,5 +3,6 @@ nyancat
 stairs
 walls
 csh?
+mcstair?
 moreblocks?
 viaduct?

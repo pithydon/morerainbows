@@ -132,6 +132,11 @@ minetest.register_craft({
 walls.register("morerainbows:nyancat_rainbow_wall", "Nyan Cat Rainbow Wall", "nyancat_rainbow.png",
 		"nyancat:nyancat_rainbow", default.node_sound_defaults())
 
+minetest.override_item("morerainbows:nyancat_rainbow_wall", {
+	light_source = default.LIGHT_MAX,
+	groups = {cracky = 2, wall = 1}
+})
+
 if minetest.get_modpath("csh") then
 	csh.from_node("nyancat:nyancat_rainbow")
 	csh.from_node("morerainbows:rainbow_brick")
@@ -141,6 +146,7 @@ if minetest.get_modpath("moreblocks") then
 	stairsplus:register_all("stairs", "nyancat_rainbow", "nyancat:nyancat_rainbow", {
 		description = "Nyan Cat Rainbow",
 		tiles = {"nyancat_rainbow.png^[transformR90", "nyancat_rainbow.png^[transformR90", "nyancat_rainbow.png"},
+		light_source = default.LIGHT_MAX,
 		groups = {cracky = 2},
 		sounds = default.node_sound_defaults()
 	})
@@ -157,6 +163,27 @@ else
 			"Nyan Cat Rainbow Stairs", "Nyan Cat Rainbow Slab", default.node_sound_defaults())
 	stairs.register_stair_and_slab("rainbow_brick", "morerainbows:rainbow_brick", {cracky = 3}, {"morerainbows_rainbow_brick.png"},
 			"Rainbow Brick Stairs", "Rainbow Brick Slab", default.node_sound_stone_defaults())
+
+	minetest.override_item("stairs:stair_nyancat_rainbow", {
+		light_source = default.LIGHT_MAX
+	})
+
+	minetest.override_item("stairs:slab_nyancat_rainbow", {
+		light_source = default.LIGHT_MAX
+	})
+
+	if minetest.get_modpath("mcstair") then
+		mcstair.add("stairs:stair_nyancat_rainbow")
+		mcstair.add("stairs:stair_rainbow_brick")
+
+		minetest.override_item("stairs:stair_nyancat_rainbow_outer", {
+			light_source = default.LIGHT_MAX
+		})
+
+		minetest.override_item("stairs:stair_nyancat_rainbow_inner", {
+			light_source = default.LIGHT_MAX
+		})
+	end
 end
 
 if minetest.get_modpath("viaduct") then
@@ -168,7 +195,8 @@ if minetest.get_modpath("viaduct") then
 				fixed = {
 					{-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5}
 				},
-			}
+			},
+			light_source = default.LIGHT_MAX
 		})
 	end
 	minetest.override_item("viaduct:nyancat_rainbow_bridge_un", {
@@ -178,7 +206,8 @@ if minetest.get_modpath("viaduct") then
 				{-0.5, -0.5, -0.5, 0.5, -0.4375, 0},
 				{-0.5, 0, 0, 0.5, 0.0625, 0.5}
 			}
-		}
+		},
+		light_source = default.LIGHT_MAX
 	})
 	minetest.override_item("viaduct:nyancat_rainbow_bridge_ue", {
 		collision_box = {
@@ -187,7 +216,8 @@ if minetest.get_modpath("viaduct") then
 				{-0.5, -0.5, -0.5, 0, -0.4375, 0.5},
 				{0, 0, -0.5, 0.5, 0.0625, 0.5}
 			}
-		}
+		},
+		light_source = default.LIGHT_MAX
 	})
 	minetest.override_item("viaduct:nyancat_rainbow_bridge_us", {
 		collision_box = {
@@ -196,7 +226,8 @@ if minetest.get_modpath("viaduct") then
 				{-0.5, 0, -0.5, 0.5, 0.0625, 0},
 				{-0.5, -0.5, 0, 0.5, -0.4375, 0.5}
 			}
-		}
+		},
+		light_source = default.LIGHT_MAX
 	})
 	minetest.override_item("viaduct:nyancat_rainbow_bridge_uw", {
 		collision_box = {
@@ -205,6 +236,7 @@ if minetest.get_modpath("viaduct") then
 				{-0.5, 0, -0.5, 0, 0.0625, 0.5},
 				{0, -0.5, -0.5, 0.5, -0.4375, 0.5}
 			}
-		}
+		},
+		light_source = default.LIGHT_MAX
 	})
 end

@@ -1,4 +1,4 @@
-morerainbows v1.0
+morerainbows v1.1
 
 More rainbow shapes and rainbow brick.
 
